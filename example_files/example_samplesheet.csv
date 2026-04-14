@@ -1,0 +1,4 @@
+sample,read1,read2
+mysample1,SRR928347_1.fastq,SRR928347_2.fastq
+mysample2_l1,SRR928348_1.fastq,SRR928348_2.fastq
+mysample2_l2,SRR928349_1.fastq,SRR928349_2.fastq

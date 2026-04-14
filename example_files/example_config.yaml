@@ -1,0 +1,5 @@
+reference_genome: "/path/to/reference.fna"
+output_dir: "output"
+singularity_exec: "/bigdata/armstronglab/shared/applications/singularity_containers/clara-parabricks_4.1.1-1.sif"
+mnt: "/path/to/where/you/want/to/mnt"
+samplesheet: "example_files/example_samplesheet.csv"
