@@ -1,0 +1,8 @@
+reference_genome: "/bigdata/armstronglab/shared/bear_data/reference_genome/GCF_023065955.2_UrsArc2.0_genomic.fna"
+output_dir: "output"
+singularity_exec: "/bigdata/armstronglab/shared/applications/singularity_containers/clara-parabricks_4.1.1-1.sif"
+sample_name: "SRR22801898"
+read1: "/bigdata/armstronglab/respl001/side_quests/range_wide_sv/data/fastq/deJong_2023/SRR22801898_1.fastq"
+read2: "/bigdata/armstronglab/respl001/side_quests/range_wide_sv/data/fastq/deJong_2023/SRR22801898_2.fastq"
+
+mnt: "/bigdata/armstronglab/respl001/reusable_pipelines/fastq-to-bam"

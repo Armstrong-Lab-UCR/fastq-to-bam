@@ -25,7 +25,7 @@ cluster-cancel: "scancel"
 printshellcmds: true
 
 # Keep going if some jobs fail
-keep-going: true
+keep-going: false
 
 # Rerun incomplete jobs
 rerun-incomplete: true

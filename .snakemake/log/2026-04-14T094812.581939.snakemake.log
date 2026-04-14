@@ -1,0 +1,7 @@
+Building DAG of jobs...
+MissingInputException in rule fq2bam  in line 12 of /bigdata/armstronglab/respl001/reusable_pipelines/fastq-to-bam/Snakefile:
+Missing input files for rule fq2bam:
+    output: output/SAMN32301329.bam, output/SAMN32301329.bai
+    affected files:
+        /bigdata/armstronglab/respl001/side_quests/range_wide_sv/data/fastq/deJong_2023/SRR22801882_1.fastq
+        /bigdata/armstronglab/respl001/side_quests/range_wide_sv/data/fastq/deJong_2023/SRR22801882_2.fastq
