@@ -1,19 +1,20 @@
-# Slurm profile configuration for ROH pipeline
+# Slurm profile for fastq-to-bam pipeline
 jobs: 50  # Maximum number of concurrent jobs
 latency-wait: 60  # Time to wait for output files to appear (seconds)
 restart-times: 0  # Number of times to restart failed jobs
 max-jobs-per-second: 10  # Rate limiting for job submission
 
-# Default resources for all jobs
+# Default resources for all jobs (CPU-focused defaults for lightweight rules)
 default-resources:
-  - mem_mb=32000   # 32GB is sufficient for smoove and picard
-  - runtime=1440   # 72 hours for fix_readgroups rule (14+ samples × ~40min each + buffer)
-  - cpus_per_task=4  # Matches threads in main config
+  - mem_mb=8000        # 8GB for lightweight rules (e.g. bam checks)
+  - runtime=120        # 2 hours for lightweight rules
+  - cpus_per_task=4
   - partition=armstronglab
   - account=armstronglab
+  - gres=""            # Empty by default; overridden to "gpu:a100:1" in fq2bam rule
 
 # Cluster submission command template
-cluster: "mkdir -p logs/slurm/{rule}_{wildcards} && sbatch --account={resources.account} --partition={resources.partition} --time={resources.runtime} --mem={resources.mem_mb} --cpus-per-task={resources.cpus_per_task} --output=logs/slurm/{rule}_{wildcards}/{rule}_{wildcards}_%j.out --error=logs/slurm/{rule}_{wildcards}/{rule}_{wildcards}_%j.err --job-name={rule}_{wildcards} --parsable"
+cluster: "mkdir -p logs/slurm/{rule}_{wildcards} && sbatch --account={resources.account} --partition={resources.partition} --time={resources.runtime} --mem={resources.mem_mb} --cpus-per-task={resources.cpus_per_task} --gres={resources.gres} --output=logs/slurm/{rule}_{wildcards}/{rule}_{wildcards}_%j.out --error=logs/slurm/{rule}_{wildcards}/{rule}_{wildcards}_%j.err --job-name={rule}_{wildcards} --parsable"
 
 # Status check command
 cluster-status: "python3 profiles/slurm/slurm_status.py"
