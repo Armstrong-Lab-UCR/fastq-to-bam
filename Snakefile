@@ -5,9 +5,13 @@ SAMPLESHEET = config["samplesheet"]
 
 # Read the samplesheet and check for errors
 try:
-    samples = pd.read_csv(SAMPLESHEET).set_index("sample", drop=False)
+    samples = pd.read_csv(SAMPLESHEET)
+    samples.columns = samples.columns.str.lower()
+    samples = samples.set_index("sample", drop=False)
 except FileNotFoundError:
     raise FileNotFoundError(f"Samplesheet file not found at: {SAMPLESHEET}")
+except KeyError:
+    raise KeyError("The samplesheet must contain a 'sample' column.")
 
 # Error checking for non-unique sample names
 if not samples.index.is_unique:
