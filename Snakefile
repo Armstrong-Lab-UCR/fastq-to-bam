@@ -47,7 +47,8 @@ rule fq2bam:
         mem_gb=240,
         time="96:00:00",
         gres="gpu:a100:1",
-        partition="gpu"
+        partition="gpu",
+        cpus_per_task=lambda wildcards, threads: threads
     shell:
         """
         module load singularity
