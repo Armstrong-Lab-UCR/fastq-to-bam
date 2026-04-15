@@ -4,7 +4,7 @@ This pipeline takes `.fastq` files and converts them to `.bam` using parabricks.
 ## Input Files
 You only need 2 input files: a `config.yaml` specifying paths to specific files/executibles, and a `samplesheet.csv` that has at least the sample name, read1 and read2.
 
-Your samplesheet can have any columns you want, but it **MUST** have the following fields named *exactly* `sample`, `read1`, and `read2`. 
+Your samplesheet can have any columns you want, but it **MUST** have the following fields named *exactly* `sample`, `read1`, and `read2` (but they don't have to be case sensitive!)
 
 ### Example `config.yaml`
 ```{yaml}
