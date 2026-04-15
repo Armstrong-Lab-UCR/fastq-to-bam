@@ -17,8 +17,8 @@ samplesheet: "/path/to/samplesheet.csv"
 ### Example `samplesheet.csv`
 ```{csv}
 sample,read1,read2
-mysample1,SRR928347_1.fastq,SRR928347_2.fastq
-mysample2,SRR928348_1.fastq,SRR928348_2.fastq
+mysample1,full/path/to/SRR928347_1.fastq,full/path/to/SRR928347_2.fastq
+mysample2,full/path/to/SRR928348_1.fastq,full/path/to/SRR928348_2.fastq
 ```
 
 ## Output Files
@@ -34,9 +34,9 @@ The pipeline will output `.bam` files in the `output_dir` specified in the `conf
 If you have a sample prepped with multiple libraries, please pretend that these are different samples in the `samplesheet`. For example, this is what the `samplesheet` should look like with `mysample2` having multiple library preps:
 ```{csv}
 sample,read1,read2
-mysample1,SRR928347_1.fastq,SRR928347_2.fastq
-mysample2_l1,SRR928348_1.fastq,SRR928348_2.fastq
-mysample2_l2,SRR928349_1.fastq,SRR928349_2.fastq
+mysample1,full/path/to/SRR928347_1.fastq,full/path/to/SRR928347_2.fastq
+mysample2_l1,full/path/to/SRR928348_1.fastq,full/path/to/SRR928348_2.fastq
+mysample2_l2,full/path/to/SRR928349_1.fastq,full/path/to/SRR928349_2.fastq
 ```
 Each sample must have a unique identifier, so in this case simply adding `_l1` or `_l2` to the sample name will effectively treat these as different samples for this step, which is what we want. 
 
