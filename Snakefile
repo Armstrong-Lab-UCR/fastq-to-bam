@@ -54,7 +54,7 @@ rule fq2bam:
         module load singularity
         module load cuda
 
-        singularity exec --nv \ 
+        singularity exec --nv \
             --bind {params.mnt} \
             {params.singularity} \
             pbrun fq2bam \
