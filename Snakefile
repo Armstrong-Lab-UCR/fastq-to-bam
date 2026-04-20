@@ -44,8 +44,8 @@ rule fq2bam:
         bai=f"{OUTPUT_DIR}/{{sample}}.bai",
     threads: 16
     resources:
-        mem_mb=245760,  # 240GB in MB
-        runtime=5760,  # 96 hours in minutes
+        mem_mb=102400,  # 100GB in MB
+        runtime=4320,  # 72 hours in minutes
         gres="gpu:a100:1",
         partition="gpu",
         cpus_per_task=lambda wildcards, threads: threads
