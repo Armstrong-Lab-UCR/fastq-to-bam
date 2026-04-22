@@ -45,7 +45,7 @@ rule fq2bam:
     threads: 16
     resources:
         mem_mb=102400,  # 100GB in MB
-        runtime=4320,  # 72 hours in minutes
+        runtime=600,  # 10 hours in minutes
         gres="gpu:a100:1",
         partition="gpu",
         cpus_per_task=lambda wildcards, threads: threads
