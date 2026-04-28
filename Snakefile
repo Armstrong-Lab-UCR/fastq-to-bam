@@ -41,7 +41,6 @@ rule fq2bam:
         sample_name="{sample}"
     output:
         bam=f"{OUTPUT_DIR}/{{sample}}.bam",
-        bai=f"{OUTPUT_DIR}/{{sample}}.bai",
     threads: 16
     resources:
         mem_mb=102400,  # 100GB in MB
@@ -60,5 +59,5 @@ rule fq2bam:
             pbrun fq2bam \
             --ref {input.reference} \
             --in-fq {input.read1} {input.read2} \
-            --out-bam {params.output_dir}/{params.sample_name}.bam
+            --out-bam {output.bam}
         """

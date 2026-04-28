@@ -1,6 +1,6 @@
 # Slurm profile for fastq-to-bam pipeline
 jobs: 50  # Maximum number of concurrent jobs
-latency-wait: 60  # Time to wait for output files to appear (seconds)
+latency-wait: 300  # Time to wait for output files to appear (seconds)
 restart-times: 0  # Number of times to restart failed jobs
 max-jobs-per-second: 10  # Rate limiting for job submission
 
