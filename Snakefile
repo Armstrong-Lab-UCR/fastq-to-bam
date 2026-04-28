@@ -27,7 +27,6 @@ SAMPLES = samples.index.tolist()
 rule all:
     input: 
         expand(f"{OUTPUT_DIR}/{{sample}}.bam", sample=SAMPLES),
-        expand(f"{OUTPUT_DIR}/{{sample}}.bai", sample=SAMPLES),
 
 rule fq2bam:
     input:
